@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 393615677002897173}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,4 +164,5 @@ MonoBehaviour:
   hook: {fileID: 5598086115399125315, guid: 856486e90e562c04aa1b2e4057e3e2ed, type: 3}
   hookSpawnOffset: 1
   ropeLength: 5
+  maxRopeLength: 10
   aimdir: {x: 0, y: 0}
