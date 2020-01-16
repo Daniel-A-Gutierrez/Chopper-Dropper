@@ -42,6 +42,7 @@ public class Spodermun : MonoBehaviour
     public GameObject hook;
     public float hookSpawnOffset;
     public float ropeLength;
+    public float maxRopeLength;
     GameObject hookInstance;
     [SerializeField]
     Vector2 aimdir;
@@ -101,7 +102,6 @@ public class Spodermun : MonoBehaviour
             moveVec += (Vector2)(hookInstance.transform.position - transform.position).normalized*
                 ((hookInstance.transform.position - transform.position).magnitude - ropeLength)*.01f;
         }
-        
     }
 
 

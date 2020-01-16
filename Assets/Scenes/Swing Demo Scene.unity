@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,8 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: ce4d9c24e7aab724c936f28d17a47adc,
-    type: 2}
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -536,6 +535,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: ropeLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: maxRopeLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: jumpMaxHeight
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: jumpMinHeight
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 393615677002897175, guid: c60be7963a7adae4f8e0baf10ce48ae2,
         type: 3}
       propertyPath: m_Name

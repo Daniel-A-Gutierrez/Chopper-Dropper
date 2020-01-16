@@ -128,8 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  maxDistance: 3
-  minDistance: 0.5
+  minDistance: 1
   affixed: 0
   canAffix: 1
   outgoing: 1

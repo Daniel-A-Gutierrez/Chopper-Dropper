@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     public float speed;
-    public float maxDistance;
+    float maxDistance;
     public float minDistance;
     public bool affixed = false;
     public bool canAffix = true;
@@ -17,6 +17,7 @@ public class Hook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxDistance = Controller.maxRopeLength;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right *speed;
     }
@@ -61,6 +62,9 @@ public class Hook : MonoBehaviour
             affixedTo =col.transform;
             affixedOffset = affixedTo.position - transform.position;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+
+            Controller.ropeLength =  Vector2.Distance(Controller.transform.position, transform.position);
+            
         }
     }
 }
