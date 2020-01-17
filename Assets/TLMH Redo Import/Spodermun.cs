@@ -26,6 +26,9 @@ public class Spodermun : MonoBehaviour
     public float fallSpeedCap = 32;
     public float RoofCheckOffset = .32f;
     public float GroundCheckOffset =.38f;
+    [Range(0,4)]
+    public int numJumps = 1;
+
     
     public Vector2 RoofCheckBounds;
     public Vector2 GroundCheckBounds;
@@ -38,6 +41,7 @@ public class Spodermun : MonoBehaviour
     bool roofed;
     float lastJumpTime;
     Vector2 moveVec;
+    int jumpsRemaining;
 
     public GameObject hook;
     public float hookSpawnOffset;
@@ -89,6 +93,14 @@ public class Spodermun : MonoBehaviour
         }
     }
 
+    public void SwingResetJump()
+    {
+        if(jumpsRemaining < numJumps)
+        {
+            jumpsRemaining ++;
+        }
+    }
+
     //swinging is not a state , but an action that can be performed under all states.
     void Swinging()
     {
@@ -110,6 +122,7 @@ public class Spodermun : MonoBehaviour
     void EnterDefaultState()
     {
         state = "DefaultState";
+        jumpsRemaining = (int)numJumps;
         DefaultState();
     }
     void DefaultState()
@@ -118,7 +131,7 @@ public class Spodermun : MonoBehaviour
         CheckGrounded();
         CheckRoofed();
         ApplyGravity();
-        if(!roofed && Input.GetKeyDown(jump)&&Time.time-lastJumpTime > jumpCooldown)
+        if(!roofed && Input.GetKeyDown(jump)&&Time.time-lastJumpTime > jumpCooldown && jumpsRemaining>0 )
         {
             ExitDefaultState();
             EnterJumpingState();
@@ -139,6 +152,7 @@ public class Spodermun : MonoBehaviour
     void EnterJumpingState()
     {
         lastJumpTime = Time.time;
+        jumpsRemaining--;
         state = "JumpingState";
         //max height is going to be under lowered gravity, min under normal gravity.
         /*so v = root( 2ax ) */
@@ -198,6 +212,12 @@ public class Spodermun : MonoBehaviour
         {
             ExitFallingState();
             EnterDefaultState();
+            return;
+        }
+        if(!roofed && Input.GetKeyDown(jump)&&Time.time-lastJumpTime > jumpCooldown && jumpsRemaining>0 )
+        {
+            ExitDefaultState();
+            EnterJumpingState();
             return;
         }
     }
