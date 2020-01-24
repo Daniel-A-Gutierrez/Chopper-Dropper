@@ -52,6 +52,8 @@ public class Hook : MonoBehaviour
         affixedTo = null;
         rb.constraints = RigidbodyConstraints2D.None;
         outgoing  = false;
+        Controller.SwingResetJump();
+
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -64,7 +66,6 @@ public class Hook : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
 
             Controller.ropeLength =  Vector2.Distance(Controller.transform.position, transform.position);
-            
         }
     }
 }
