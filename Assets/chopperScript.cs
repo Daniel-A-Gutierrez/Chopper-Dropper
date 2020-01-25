@@ -11,6 +11,7 @@ public class chopperScript : MonoBehaviour
     [SerializeField] string dropKey;
     [SerializeField] GameObject rock;
     [SerializeField] ammoManager gameManager;
+    [SerializeField] float yOffset = -1f;
 
 
     // Start is called before the first frame update
@@ -37,7 +38,7 @@ public class chopperScript : MonoBehaviour
         {
             if(gameManager.checkFlyerAmmo())
             {
-                GameObject droppedRock = Instantiate(rock, this.gameObject.transform.position, Quaternion.identity);
+                GameObject droppedRock = Instantiate(rock, this.gameObject.transform.position + new Vector3(0f,yOffset,0f), Quaternion.identity);
                 droppedRock.GetComponent<Rigidbody2D>().velocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
             }
             else
