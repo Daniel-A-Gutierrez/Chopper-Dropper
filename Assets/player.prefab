@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 393615677002897179}
   - component: {fileID: 393615677002897172}
   - component: {fileID: 393615677002897173}
+  - component: {fileID: 6345996945924226778}
+  - component: {fileID: 5865023567983235621}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -73,7 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3c50b6e7b4f0004dafd02ae5806a533, type: 3}
+  m_Sprite: {fileID: 8603369663158992956, guid: 0ea2d3e7566688f4ea598e1a14c9e3e2,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -118,18 +121,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.04}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78125, y: 0.78125}
+    oldSize: {x: 0.4790707, y: 1.78}
     newSize: {x: 0.78125, y: 0.78125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17, y: 0.66}
+  m_Size: {x: 0.5, y: 1.8}
   m_EdgeRadius: 0
 --- !u!114 &393615677002897173
 MonoBehaviour:
@@ -143,22 +146,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276452acf394d1e41bd3e37ffe64e527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swingingEnabled: 0
   state: DefaultState
   left: 97
   right: 100
   jump: 32
   walkSpeed: 4
   airControl: 0.1
-  jumpMaxHeight: 250
-  jumpMinHeight: 150
+  jumpMaxHeight: 300
+  jumpMinHeight: 200
   jumpCooldown: 0.1
   gravityScale: 0.5
-  maxAirSpeed: 16
-  fallSpeedCap: 32
-  RoofCheckOffset: 0.32
-  GroundCheckOffset: -0.38
-  RoofCheckBounds: {x: 0.15, y: 0.03}
-  GroundCheckBounds: {x: 0.13, y: 0.03}
+  maxAirSpeed: 15
+  fallSpeedCap: 15
+  RoofCheckOffset: 0.9
+  GroundCheckOffset: -0.9
+  numJumps: 1
+  RoofCheckBounds: {x: 0.5, y: 0.03}
+  GroundCheckBounds: {x: 0.5, y: 0.03}
   groundLayer: Obstacle
   roofLayer: Obstacle
   hook: {fileID: 5598086115399125315, guid: 856486e90e562c04aa1b2e4057e3e2ed, type: 3}
@@ -166,3 +171,53 @@ MonoBehaviour:
   ropeLength: 5
   maxRopeLength: 10
   aimdir: {x: 0, y: 0}
+--- !u!114 &6345996945924226778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393615677002897175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431fcdc36cbc27944b97373c773810fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: jump
+    clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: walk
+    clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
+    volume: 0.609
+    pitch: 0.75
+    loop: 1
+    source: {fileID: 0}
+  - name: getHit
+    clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
+    volume: 1
+    pitch: 1.56
+    loop: 0
+    source: {fileID: 0}
+--- !u!95 &5865023567983235621
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393615677002897175}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd14dc721d8bbe8408afaef2ff822b21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

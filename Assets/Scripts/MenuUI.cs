@@ -6,14 +6,22 @@ public class MenuUI : MonoBehaviour
 {
 	public static bool isGamePaused = false;
 	public GameObject pauseMenuUI;
-    public void PlayGame()
+
+	public void Start()
+	{
+		GetComponent<AudioManager>().Play("music");
+	}
+    public void PlayGame(string level_to_load)
 	{
 		//Application.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
-		SceneManager.LoadScene("santi");
+		GetComponent<AudioManager>().Play("button_click");
+		SceneManager.LoadScene(level_to_load);
+		
 	}
 	public void QuitGame()
 	{
 		print("Quiting..");
+		GetComponent<AudioManager>().Play("button_click");
 		Application.Quit();
 	}
 

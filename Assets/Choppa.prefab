@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2363852807023473983}
   - component: {fileID: 2363852807023473982}
   - component: {fileID: 2363852807023473981}
+  - component: {fileID: 1173690725708394551}
   m_Layer: 0
   m_Name: Choppa
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   dropKey: space
   rock: {fileID: 7088933079263780008, guid: 120c6fc52bcfe36498846c8eebecef46, type: 3}
   gameManager: {fileID: 0}
+  yOffset: -1
 --- !u!50 &2363852807023473982
 Rigidbody2D:
   serializedVersion: 4
@@ -149,3 +151,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5625, y: 1.3046875}
   m_EdgeRadius: 0
+--- !u!114 &1173690725708394551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2363852807023473980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 431fcdc36cbc27944b97373c773810fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: pickup_rock
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: throw_rock
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: idle
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

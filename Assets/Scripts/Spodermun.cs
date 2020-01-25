@@ -7,6 +7,7 @@ using UnityEngine;
 public class Spodermun : MonoBehaviour
 {
 
+    public bool swingingEnabled;
     Dictionary<string,Action> States;
     [SerializeField]
     string state = "DefaultState";
@@ -51,10 +52,13 @@ public class Spodermun : MonoBehaviour
     [SerializeField]
     Vector2 aimdir;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         States = new Dictionary<string, Action>();
+        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         States["DefaultState"] = DefaultState;
         States["JumpingState"] = JumpingState;
@@ -70,12 +74,14 @@ public class Spodermun : MonoBehaviour
         if(moveVec!=Vector2.zero)
             rb.MovePosition(rb.position+moveVec);
     }
-
+//
     void Update()
     {
         States[state]();
-
-        SwingingStuff();
+        animator.SetFloat("YVelocity", (-moveVec.y/Mathf.Sqrt(2 * gravityScale * jumpMinHeight)*Time.fixedDeltaTime )*1.25f);
+        GetComponent<SpriteRenderer>().flipX = lastNonZeroMoveDir.x < 0;
+        if(swingingEnabled)
+            SwingingStuff();
     }
 
 
@@ -123,11 +129,28 @@ public class Spodermun : MonoBehaviour
     {
         state = "DefaultState";
         jumpsRemaining = (int)numJumps;
+        animator.Play("Idle");
+        lastMoveDir=Vector2.zero;
         DefaultState();
     }
+    Vector2 lastMoveDir = Vector2.zero;
+    Vector2 lastNonZeroMoveDir = Vector2.zero;
     void DefaultState()
     {
         SetMoveDir();
+        if(lastMoveDir==Vector2.zero && moveVec!=Vector2.zero)
+        {
+            animator.Play("Walk");
+            GetComponent<AudioManager>().PlayIfNotPlaying("Walk");
+        }
+        else if(moveVec==Vector2.zero && lastMoveDir!=Vector2.zero)
+        {
+            animator.Play("Idle");
+            GetComponent<AudioManager>().StopIfPlaying("Walk");
+        }
+        lastMoveDir=moveVec;
+        if(moveVec!=Vector2.zero)
+            lastNonZeroMoveDir = moveVec;
         CheckGrounded();
         CheckRoofed();
         ApplyGravity();
@@ -154,11 +177,13 @@ public class Spodermun : MonoBehaviour
         lastJumpTime = Time.time;
         jumpsRemaining--;
         state = "JumpingState";
+        GetComponent<AudioManager>().ForcePlay("Jump");
         //max height is going to be under lowered gravity, min under normal gravity.
         /*so v = root( 2ax ) */
         moveVec.y = Mathf.Sqrt(2 * gravityScale * jumpMinHeight)*Time.fixedDeltaTime;
         //but now i want it to only cancel once its reached max height
         currentGravity = moveVec.y *moveVec.y /  (2*jumpMaxHeight*Time.fixedDeltaTime*Time.fixedDeltaTime);
+        animator.Play("Jump");
         JumpingState();
     }
     void JumpingState()
@@ -196,6 +221,7 @@ public class Spodermun : MonoBehaviour
     void EnterFallingState()
     {
         state = "FallingState";
+        animator.Play("Jump");
         FallingState();
     }
     void FallingState()

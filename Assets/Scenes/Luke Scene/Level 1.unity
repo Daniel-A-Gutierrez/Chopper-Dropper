@@ -298,9 +298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125e8889115c8d2409d13ceb4cd53547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
+  waypoints:
+  - {x: 0, y: 0, z: 0}
   speed: 0
-  startupTime: 0
+  startupTime: 1
 --- !u!1001 &90471500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,26 +309,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
-        type: 3}
-      propertyPath: fallSpeedCap
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
-        type: 3}
-      propertyPath: maxAirSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
-        type: 3}
-      propertyPath: jumpMaxHeight
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 393615677002897173, guid: c60be7963a7adae4f8e0baf10ce48ae2,
-        type: 3}
-      propertyPath: jumpMinHeight
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 393615677002897175, guid: c60be7963a7adae4f8e0baf10ce48ae2,
         type: 3}
       propertyPath: m_Name
@@ -387,6 +368,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345996945924226778, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345996945924226778, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: sounds.Array.data[1].name
+      value: Walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345996945924226778, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: GetHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6345996945924226778, guid: c60be7963a7adae4f8e0baf10ce48ae2,
+        type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 0.18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c60be7963a7adae4f8e0baf10ce48ae2, type: 3}
