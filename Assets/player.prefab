@@ -184,19 +184,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: jump
+  - name: Jump
     clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: walk
+  - name: Walk
     clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
     volume: 0.609
-    pitch: 0.75
+    pitch: 0.18
     loop: 1
     source: {fileID: 0}
-  - name: getHit
+  - name: GetHit
     clip: {fileID: 8300000, guid: cd57ac3a418166146b752ca13288f1ba, type: 3}
     volume: 1
     pitch: 1.56
