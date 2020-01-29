@@ -9,6 +9,7 @@ public class Enemy_Chomper : MonoBehaviour
     public float moveRight;
     public Rigidbody2D chomperBody;
     public bool movingLeft;
+    public SpriteRenderer chomperRenderer;
 
     private float initialX;
  
@@ -19,6 +20,11 @@ public class Enemy_Chomper : MonoBehaviour
       if (!chomperBody)
         {
             print("No rigid body in chomper prefb script.");
+        }
+
+        if (!chomperRenderer)
+        {
+            print("No sprite renderer in chomper prefab");
         }
         initialX = chomperBody.position.x;
     }
@@ -32,6 +38,7 @@ public class Enemy_Chomper : MonoBehaviour
             if(chomperBody.position.x <= initialX - moveLeft)
             {
                 movingLeft = false;
+                chomperRenderer.flipX = true;
             }
         }
 
@@ -41,6 +48,7 @@ public class Enemy_Chomper : MonoBehaviour
             if (chomperBody.position.x >= initialX + moveRight)
             {
                 movingLeft = true;
+                chomperRenderer.flipX = false;
             }
         }
 
