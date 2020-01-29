@@ -15,9 +15,10 @@ public class ammoToss : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.W))
         {
             shot = true;
+            Debug.Log("shot ammo");
         }
     }
 
