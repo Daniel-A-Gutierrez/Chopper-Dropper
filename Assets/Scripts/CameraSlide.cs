@@ -28,7 +28,7 @@ public class CameraSlide : MonoBehaviour
         }
         if(waypoints[index]==transform.position)
             transform.Translate(.001f,.001f,.001f);
-        transform.Translate( (waypoints[index]-transform.position).normalized*speed*Mathf.Lerp(0,speed,Time.time/startupTime)*Time.deltaTime );
+        transform.Translate( (waypoints[index]-transform.position).normalized*Mathf.Lerp(0,speed,Time.time/startupTime)*Time.deltaTime );
     }
 
     bool V2EQ(Vector2 a, Vector2 b, float tolerance = 0.01f)
