@@ -1,0 +1,48 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Enemy_Chomper : MonoBehaviour
+{
+    //note: DO NOT make left negative. assign it in terms of absolute value of the units you want this boy to go left.
+    public float moveLeft;
+    public float moveRight;
+    public Rigidbody2D chomperBody;
+    public bool movingLeft;
+
+    private float initialX;
+ 
+
+    // Start is called before the first frame update
+    void Start()
+    {
+      if (!chomperBody)
+        {
+            print("No rigid body in chomper prefb script.");
+        }
+        initialX = chomperBody.position.x;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if(movingLeft)
+        {
+            chomperBody.velocity = new Vector2(-1, 0);
+            if(chomperBody.position.x <= initialX - moveLeft)
+            {
+                movingLeft = false;
+            }
+        }
+
+        if (!movingLeft)
+        {
+            chomperBody.velocity = new Vector2(1, 0);
+            if (chomperBody.position.x >= initialX + moveRight)
+            {
+                movingLeft = true;
+            }
+        }
+
+    }
+}
