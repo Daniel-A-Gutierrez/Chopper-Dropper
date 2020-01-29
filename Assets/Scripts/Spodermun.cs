@@ -255,6 +255,10 @@ public class Spodermun : MonoBehaviour
     
 
 
+    void OnCollisionEnter2D(Collider2D col)
+    {
+
+    }
 
 
 
