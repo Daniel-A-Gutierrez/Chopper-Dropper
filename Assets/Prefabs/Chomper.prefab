@@ -92,7 +92,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8400429571260436069}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d118b65b02071ba42afac52795e21e59, type: 3}
   m_Name: 
@@ -101,6 +101,7 @@ MonoBehaviour:
   moveRight: 1
   chomperBody: {fileID: 7814226613279660576}
   movingLeft: 1
+  chomperRenderer: {fileID: 522046267031687604}
 --- !u!50 &7814226613279660576
 Rigidbody2D:
   serializedVersion: 4

@@ -19,12 +19,12 @@ public class Enemy_Chomper : MonoBehaviour
     {
       if (!chomperBody)
         {
-            print("No rigid body in chomper prefb script.");
+            Debug.Log("No rigid body in chomper prefb script.");
         }
 
-        if (!chomperRenderer)
+      if (!chomperRenderer)
         {
-            print("No sprite renderer in chomper prefab");
+            Debug.Log("No sprite renderer in chomper prefab");
         }
         initialX = chomperBody.position.x;
     }
@@ -32,7 +32,8 @@ public class Enemy_Chomper : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(movingLeft)
+        print("czxcxz");
+        if (movingLeft)
         {
             chomperBody.velocity = new Vector2(-10, 0);
             if(chomperBody.position.x <= initialX - moveLeft)
@@ -40,9 +41,10 @@ public class Enemy_Chomper : MonoBehaviour
                 movingLeft = false;
                 chomperRenderer.flipX = true;
             }
+           
         }
 
-        if (!movingLeft)
+        else if (!movingLeft)
         {
             chomperBody.velocity = new Vector2(10, 0);
             if (chomperBody.position.x >= initialX + moveRight)
@@ -50,7 +52,14 @@ public class Enemy_Chomper : MonoBehaviour
                 movingLeft = true;
                 chomperRenderer.flipX = false;
             }
+            
         }
+
+        else
+        {
+            Debug.Log("didn't enter moving case");
+        }
+
 
     }
 }
