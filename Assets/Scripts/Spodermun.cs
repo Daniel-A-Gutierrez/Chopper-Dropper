@@ -19,6 +19,7 @@ public class Spodermun : MonoBehaviour
 
     public float walkSpeed = 4;
     public float airControl = .1f;
+    public float stunDuration = 1f;
     public float jumpMaxHeight = 250;//idk what the fuck units these are but it works
     public float jumpMinHeight = 150;
     public float jumpCooldown = .1f;
@@ -37,6 +38,7 @@ public class Spodermun : MonoBehaviour
     public string roofLayer;
 
     float currentGravity;
+    float lastStunTime;
     bool gravityOn = true;
     bool grounded;
     bool roofed;
@@ -63,6 +65,7 @@ public class Spodermun : MonoBehaviour
         States["DefaultState"] = DefaultState;
         States["JumpingState"] = JumpingState;
         States["FallingState"] = FallingState;
+        States["StunnedState"] = StunnedState;
         ResetGravity();
     }
 
@@ -252,9 +255,41 @@ public class Spodermun : MonoBehaviour
         moveVec.y = 0;
     }
 
+    void EnterStunnedState()//EnterStunnedState
+    {
+        if(state!="StunnedState")
+        {
+            lastStunTime = Time.time;
+            state = "StunnedState";
+            StunnedState();
+        }
+    }
+
+    void StunnedState()
+    {
+        //graphical representation of stun.
+        if(Time.time > lastStunTime+stunDuration)
+        {
+            ExitStunnedState();
+            EnterDefaultState();
+        }
+    }
+
+    void ExitStunnedState()
+    {
+
+    }
+
     
 
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.CompareTag("Enemy"))
+        {
+            EnterStunnedState();
+        }
+    }
 
 
 
