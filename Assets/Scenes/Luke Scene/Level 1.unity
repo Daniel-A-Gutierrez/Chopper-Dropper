@@ -73466,7 +73466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690667922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9804134, y: 2.5536814, z: -6.9257812}
+  m_LocalPosition: {x: 7.9804134, y: 2.5536814, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1890966239}
@@ -73555,16 +73555,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1890966239}
     m_Modifications:
-    - target: {fileID: 2754891572891888025, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: moveLeft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754891572891888025, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: moveRight
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3691113969498289055, guid: 7f2fb860a6e20964b883c6bb76158085,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -73620,25 +73610,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7814226613279660576, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7814226613279660576, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8400429571260436069, guid: 7f2fb860a6e20964b883c6bb76158085,
         type: 3}
       propertyPath: m_Name
       value: Chomper
-      objectReference: {fileID: 0}
-    - target: {fileID: 8400429571260436069, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f2fb860a6e20964b883c6bb76158085, type: 3}
