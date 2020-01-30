@@ -34,7 +34,7 @@ public class Enemy_Chomper : MonoBehaviour
     {
         if(movingLeft)
         {
-            chomperBody.velocity = new Vector2(-1, 0);
+            chomperBody.velocity = new Vector2(-10, 0);
             if(chomperBody.position.x <= initialX - moveLeft)
             {
                 movingLeft = false;
@@ -44,7 +44,7 @@ public class Enemy_Chomper : MonoBehaviour
 
         if (!movingLeft)
         {
-            chomperBody.velocity = new Vector2(1, 0);
+            chomperBody.velocity = new Vector2(10, 0);
             if (chomperBody.position.x >= initialX + moveRight)
             {
                 movingLeft = true;
