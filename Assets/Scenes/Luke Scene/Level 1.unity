@@ -73265,11 +73265,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chomper (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8400429571260436069, guid: 7f2fb860a6e20964b883c6bb76158085,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f2fb860a6e20964b883c6bb76158085, type: 3}
 --- !u!1001 &633778343
