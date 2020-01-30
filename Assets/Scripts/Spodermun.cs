@@ -76,10 +76,13 @@ public class Spodermun : MonoBehaviour
                 Swinging();
         if(moveVec!=Vector2.zero)
             rb.MovePosition(rb.position+moveVec);
+        if(gravityOn)
+            FUApplyGravity();
     }
 //
     void Update()
     {
+        gravityOn=false;//override this in state if gravity should be on.
         States[state]();
         animator.SetFloat("YVelocity", (-moveVec.y/Mathf.Sqrt(2 * gravityScale * jumpMinHeight)*Time.fixedDeltaTime )*1.25f);
         GetComponent<SpriteRenderer>().flipX = lastNonZeroMoveDir.x < 0;
@@ -261,6 +264,7 @@ public class Spodermun : MonoBehaviour
         {
             lastStunTime = Time.time;
             state = "StunnedState";
+            animator.Play("Idle");
             StunnedState();
         }
     }
@@ -272,7 +276,18 @@ public class Spodermun : MonoBehaviour
         {
             ExitStunnedState();
             EnterDefaultState();
+            return;
         }
+
+        moveVec-= new Vector2(moveVec.x,0);
+        lastMoveDir=moveVec;
+        if(moveVec!=Vector2.zero)
+            lastNonZeroMoveDir = moveVec;
+        CheckGrounded();
+        CheckRoofed();
+        ApplyGravity();
+
+
     }
 
     void ExitStunnedState()
@@ -283,11 +298,12 @@ public class Spodermun : MonoBehaviour
     
 
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Enemy"))
         {
             EnterStunnedState();
+            Destroy(col.gameObject); // make this a function later.
         }
     }
 
@@ -383,6 +399,11 @@ public class Spodermun : MonoBehaviour
 
     //moveVec
     void ApplyGravity() //rn gravity is linear
+    {
+        gravityOn = true;
+    }
+
+    void FUApplyGravity()
     {
         if(gravityOn && moveVec.y >= -fallSpeedCap*Time.fixedDeltaTime && !grounded)
             moveVec += Vector2.down * currentGravity * Time.fixedDeltaTime;

@@ -9,6 +9,20 @@ public class ammoManager : MonoBehaviour
     public Collider2D walker;
     public Collider2D flyer;
 
+    void Update()
+    {
+        if(flyerAmmo>0)
+        {
+            if(!flyer.gameObject.GetComponent<RockPredictionLine>().enabled)
+                flyer.gameObject.GetComponent<RockPredictionLine>().enabled=true;
+        }
+        else
+        {
+            if(flyer.gameObject.GetComponent<RockPredictionLine>().enabled)
+                flyer.gameObject.GetComponent<RockPredictionLine>().enabled=false;
+        }
+    }
+
     public bool checkWalkerAmmo()
     {
         if(walkerAmmo > 0)
