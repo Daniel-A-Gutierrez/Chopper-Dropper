@@ -9,19 +9,23 @@ public class MenuUI : MonoBehaviour
 
 	public void Start()
 	{
-		GetComponent<AudioManager>().Play("music");
+		if(GetComponent<AudioManager>() != null)
+			GetComponent<AudioManager>().Play("music");
 	}
     public void PlayGame(string level_to_load)
 	{
-		//Application.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
-		GetComponent<AudioManager>().Play("button_click");
+		//Application.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);\
+		if (GetComponent<AudioManager>() != null)
+			GetComponent<AudioManager>().Play("button_click");
 		SceneManager.LoadScene(level_to_load);
 		
 	}
+	
 	public void QuitGame()
 	{
 		print("Quiting..");
-		GetComponent<AudioManager>().Play("button_click");
+		if (GetComponent<AudioManager>() != null)
+			GetComponent<AudioManager>().Play("button_click");
 		Application.Quit();
 	}
 
@@ -39,16 +43,25 @@ public class MenuUI : MonoBehaviour
 			}
 		}
 	}
-	void Pause()
+	public void Pause()
 	{
 		pauseMenuUI.SetActive(true);
 		Time.timeScale = 0f;
 		isGamePaused = true;
 	}
-	void Resume()
+	public void Resume()
 	{
 		pauseMenuUI.SetActive(false);
 		Time.timeScale = 1f;
 		isGamePaused = false;
 	}
+	public void LoadMenu()
+	{
+		Time.timeScale = 1f;
+		if (GetComponent<AudioManager>() != null)
+			GetComponent<AudioManager>().Play("button_click");
+		SceneManager.LoadScene("Menu");
+		print("loading...");
+	}
+	
 }
