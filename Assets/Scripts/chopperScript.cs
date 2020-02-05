@@ -24,13 +24,9 @@ public class chopperScript : MonoBehaviour
     void Update()
     {
         //movement stuff
-        if(Input.GetKey(rightKey))
+        if(Input.GetAxis("Horizontal_Chopper")!= 0)
         {
-            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(1 * moveSpeed, 0, 0); 
-        }
-        else if(Input.GetKey(leftKey))
-        {
-            this.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(-1 * moveSpeed, 0, 0);
+            GetComponent<Rigidbody2D>().AddForce(Input.GetAxis("Horizontal_Chopper") * moveSpeed * Vector2.right); 
         }
 
         //rock drop stuff
