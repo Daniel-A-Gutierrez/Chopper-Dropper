@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4669359851416836307}
   m_Layer: 0
   m_Name: Zipper Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.022663474, y: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goToPosition: {fileID: 4669359852204808893}
   startPosition: {fileID: 4669359851472414579}
-  moveSpeed: 0.3
+  moveSpeed: 0.1
 --- !u!1 &4669359851472414576
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4669359851472414579}
   m_Layer: 0
   m_Name: Zipper
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -41,7 +41,7 @@ public class Zipper_Movement : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Destroy(this.gameObject.transform.parent.gameObject);
+            //Destroy(this.gameObject.transform.parent.gameObject);
         }
     }
 }
