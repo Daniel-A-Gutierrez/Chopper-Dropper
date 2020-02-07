@@ -299,12 +299,12 @@ public class Spodermun : MonoBehaviour
     
 
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Enemy"))
         {
             EnterStunnedState();
-            Destroy(col.gameObject); // make this a function later.
+            //Destroy(col.gameObject); // make this a function later.
         }
     }
 
