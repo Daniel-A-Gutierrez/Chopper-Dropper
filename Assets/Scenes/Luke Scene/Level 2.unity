@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waypoints:
   - {x: 100, y: 0, z: 0}
-  speed: 3.6
+  speed: 3
   startupTime: 3
 --- !u!114 &83525434
 MonoBehaviour:
@@ -605,6 +605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: dropKey
       value: down
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363852807023473983, guid: 71798dbee6ee882459252742bfb7d72a,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 5490215301161857262, guid: 71798dbee6ee882459252742bfb7d72a,
         type: 3}
