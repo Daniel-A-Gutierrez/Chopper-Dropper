@@ -304,7 +304,7 @@ public class Spodermun : MonoBehaviour
         if(col.gameObject.CompareTag("Enemy"))
         {
             EnterStunnedState();
-            //Destroy(col.gameObject); // make this a function later.
+            Destroy(col.gameObject); // make this a function later.
         }
     }
 
