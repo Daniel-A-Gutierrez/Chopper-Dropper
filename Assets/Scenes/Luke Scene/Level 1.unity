@@ -603,7 +603,7 @@ PrefabInstance:
     - target: {fileID: 5490215301161857262, guid: 71798dbee6ee882459252742bfb7d72a,
         type: 3}
       propertyPath: m_Positions.Array.size
-      value: 33
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5490215301161857262, guid: 71798dbee6ee882459252742bfb7d72a,
         type: 3}
