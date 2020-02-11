@@ -262,7 +262,6 @@ public class Spodermun : MonoBehaviour
     {
         if(state!="StunnedState")
         {
-            Debug.Log("HAHAHA");
             lastStunTime = Time.time;
             state = "StunnedState";
             animator.Play("Idle");
