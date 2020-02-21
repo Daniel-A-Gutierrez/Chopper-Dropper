@@ -262,7 +262,6 @@ public class Spodermun : MonoBehaviour
     {
         if(state!="StunnedState")
         {
-            Debug.Log("HAHAHA");
             lastStunTime = Time.time;
             state = "StunnedState";
             animator.Play("Idle");
@@ -304,7 +303,7 @@ public class Spodermun : MonoBehaviour
         if(col.gameObject.CompareTag("Enemy"))
         {
             EnterStunnedState();
-            //Destroy(col.gameObject); // make this a function later.
+            Destroy(col.gameObject); // make this a function later.
         }
     }
 

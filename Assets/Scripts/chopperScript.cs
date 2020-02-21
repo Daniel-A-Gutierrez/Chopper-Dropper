@@ -36,6 +36,8 @@ public class chopperScript : MonoBehaviour
             {
                 GameObject droppedRock = Instantiate(rock, this.gameObject.transform.position + new Vector3(0f,yOffset,0f), Quaternion.identity);
                 //droppedRock.GetComponent<Rigidbody2D>().velocity = this.gameObject.GetComponent<Rigidbody2D>().velocity;
+                droppedRock.GetComponent<Rigidbody2D>().velocity = Physics.gravity;
+                
             }
             else
             {
